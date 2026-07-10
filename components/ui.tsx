@@ -46,8 +46,8 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
   );
 }
 
-export function GlassCard({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
-  return <div className="glass-card" style={{ padding: "1.25rem", ...style }}>{children}</div>;
+export function GlassCard({ children, style, className }: { children: React.ReactNode; style?: React.CSSProperties; className?: string }) {
+  return <div className={`glass-card ${className || ""}`} style={{ padding: "1.25rem", ...style }}>{children}</div>;
 }
 
 export function StatCard({

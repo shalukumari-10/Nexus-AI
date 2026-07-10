@@ -7,6 +7,7 @@ import { GlassCard, Badge, CopyButton, SecondaryButton, EmptyState } from "@/com
 import { getLastResult } from "@/lib/storage";
 import { buildNegotiationMessageClient } from "@/lib/client-negotiation";
 import { AnalysisResult, Flag } from "@/lib/types";
+import NexusAdvisor from "@/components/NexusAdvisor";
 
 type Filter = "all" | "red" | "yellow" | "green";
 type Tone = "Friendly" | "Firm" | "Professional";
@@ -324,6 +325,9 @@ export default function ResultsPage() {
             </div>
           </GlassCard>
         )}
+
+        {/* NEXUS AI ADVISOR */}
+        <NexusAdvisor analysisResult={data} />
       </div>
     </AppShell>
   );
