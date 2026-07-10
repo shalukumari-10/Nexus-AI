@@ -1,16 +1,47 @@
 "use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export function PageHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: React.ReactNode }) {
+  const router = useRouter();
   return (
-    <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, marginBottom: "1.75rem", flexWrap: "wrap" }}>
-      <div>
-        <h1 style={{ fontSize: "1.5rem", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: 5, color: "var(--text)" }}>
-          {title}
-        </h1>
-        {subtitle && <p style={{ fontSize: 14, color: "var(--text2)", lineHeight: 1.6, maxWidth: 560 }}>{subtitle}</p>}
+    <div style={{ marginBottom: "2rem" }}>
+      {/* Top Header Row */}
+      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, marginBottom: "0.85rem", flexWrap: "wrap" }}>
+        <div>
+          {/* Workspace Breadcrumbs & Status */}
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
+            <span style={{ fontSize: 11, color: "var(--violet2)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>Workspace</span>
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--text3)" }} />
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "rgba(16, 185, 129, 0.12)", padding: "2px 8px", borderRadius: 12 }}>
+              <span style={{ width: 5, height: 5, borderRadius: "50%", background: "var(--emerald)" }} />
+              <span style={{ fontSize: 9.5, fontWeight: 600, color: "var(--emerald)", textTransform: "uppercase", letterSpacing: "0.02em" }}>Active</span>
+            </div>
+          </div>
+          
+          <h1 style={{ fontSize: "1.6rem", fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6, color: "var(--text)" }}>
+            {title}
+          </h1>
+          {subtitle && <p style={{ fontSize: 13, color: "var(--text2)", lineHeight: 1.6, maxWidth: 650 }}>{subtitle}</p>}
+        </div>
+        {action && <div style={{ alignSelf: "center" }}>{action}</div>}
       </div>
-      {action}
+
+      {/* Quick Command Bar */}
+      <div style={{ display: "flex", gap: 8, padding: "8px 0", borderTop: "1px solid var(--glass-border)", borderBottom: "1px solid var(--glass-border)", overflowX: "auto" }}>
+        <button onClick={() => router.push("/scanner")} className="command-btn">
+          <i className="ti ti-scan" style={{ color: "var(--blue)" }} /> Analyze Agreement
+        </button>
+        <button onClick={() => router.push("/reports")} className="command-btn">
+          <i className="ti ti-report" style={{ color: "var(--violet2)" }} /> Generate Report
+        </button>
+        <button onClick={() => router.push("/negotiation-toolkit")} className="command-btn">
+          <i className="ti ti-message-2" style={{ color: "var(--amber)" }} /> Open AI Assistant
+        </button>
+        <button onClick={() => router.push("/history")} className="command-btn">
+          <i className="ti ti-download" style={{ color: "var(--emerald)" }} /> Export Records
+        </button>
+      </div>
     </div>
   );
 }

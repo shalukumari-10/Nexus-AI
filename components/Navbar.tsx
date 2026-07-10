@@ -17,8 +17,8 @@ export default function Navbar() {
         position: "sticky",
         top: 0,
         zIndex: 100,
-        background: "rgba(11,15,26,0.88)",
-        backdropFilter: "blur(12px)",
+        background: "rgba(15, 23, 42, 0.75)",
+        backdropFilter: "blur(16px)",
       }}
     >
       <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
