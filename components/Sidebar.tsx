@@ -3,15 +3,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
-  { href: "/dashboard", label: "Dashboard", icon: "ti-layout-dashboard" },
-  { href: "/scanner", label: "Scanner", icon: "ti-scan" },
+  { href: "/dashboard", label: "Business Intelligence Center", icon: "ti-layout-dashboard" },
+  { href: "/scanner", label: "Agreement Scanner", icon: "ti-scan" },
   { href: "/results", label: "Results", icon: "ti-file-analytics" },
-  { href: "/history", label: "History", icon: "ti-history" },
-  { href: "/brand-insights", label: "Brand Insights", icon: "ti-building-store" },
-  { href: "/negotiation-toolkit", label: "Negotiation Toolkit", icon: "ti-message-2" },
-  { href: "/legal-help", label: "Legal Help", icon: "ti-gavel" },
+  { href: "/history", label: "Business Records", icon: "ti-history" },
+  { href: "/brand-insights", label: "Client Intelligence", icon: "ti-building-store" },
+  { href: "/negotiation-toolkit", label: "AI Communication Studio", icon: "ti-message-2" },
+  { href: "/legal-help", label: "Expert Network", icon: "ti-gavel" },
   { href: "/reports", label: "Reports", icon: "ti-report" },
-  { href: "/profile", label: "Profile", icon: "ti-user-circle" },
+  { href: "/profile", label: "Organization Profile", icon: "ti-user-circle" },
 ];
 
 export default function Sidebar() {
@@ -58,7 +58,7 @@ export default function Sidebar() {
           <i className="ti ti-shield-exclamation" style={{ color: "#fff", fontSize: 15 }} />
         </div>
         <span style={{ fontSize: 15, fontWeight: 500, color: "var(--text)", letterSpacing: "-0.01em" }}>
-          ContractGuard
+          Nexus AI
         </span>
       </Link>
 
@@ -104,7 +104,7 @@ export default function Sidebar() {
         }}
       >
         <i className="ti ti-info-circle" style={{ marginRight: 5, color: "var(--violet2)" }} />
-        Not legal advice. ContractGuard helps you identify negotiation points.
+        Not legal advice. Nexus AI helps you identify key business agreement risks.
       </div>
     </div>
   );

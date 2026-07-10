@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ContractGuard — Your AI Advocate Before You Sign",
+  title: "Nexus AI — AI-Powered Business Intelligence & Trust Platform",
   description:
-    "ContractGuard uses AI to detect exploitative brand-deal clauses before creators sign — and writes the counter-language they can send back.",
+    "Nexus AI uses AI to detect exploitative brand-deal clauses before creators sign — and writes the counter-language they can send back.",
 };
 
 export default function RootLayout({

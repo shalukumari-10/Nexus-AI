@@ -33,7 +33,7 @@ export default function Navbar() {
           <i className="ti ti-shield-exclamation" style={{ color: "#fff", fontSize: 15 }} />
         </div>
         <span style={{ fontSize: 15, fontWeight: 500, color: "var(--text)", letterSpacing: "-0.01em" }}>
-          ContractGuard
+          Nexus AI
         </span>
       </Link>
 
@@ -73,7 +73,7 @@ export default function Navbar() {
           AI-Powered
         </span>
         <Link href="/scanner" className="btn-primary" style={{ fontSize: 13, padding: "7px 16px" }}>
-          Scan contract
+          Analyze Agreement
         </Link>
       </div>
     </nav>

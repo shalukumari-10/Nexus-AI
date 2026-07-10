@@ -18,7 +18,7 @@ export default function ReportsPage() {
   function downloadTextReport() {
     if (!data) return;
     const lines: string[] = [];
-    lines.push(`CONTRACTGUARD — RISK ANALYSIS REPORT`);
+    lines.push(`NEXUS AI — RISK ANALYSIS REPORT`);
     lines.push(`Generated: ${new Date().toLocaleString()}`);
     lines.push(`Contract: ${data.contractName || "Untitled"}`);
     lines.push(`Brand: ${data.brandName || "Unknown"}`);
@@ -46,13 +46,13 @@ export default function ReportsPage() {
     (data.recommendedActions || []).forEach((a, i) => lines.push(`${i + 1}. ${a}`));
     lines.push("");
     lines.push(`---`);
-    lines.push(`This is not legal advice. ContractGuard is an AI-powered tool designed to help creators identify potential negotiation points.`);
+    lines.push(`This is not legal advice. Nexus AI is an AI-powered tool designed to help business users identify potential negotiation points.`);
 
     const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `contractguard-report-${(data.contractName || "contract").replace(/\s+/g, "-").toLowerCase()}.txt`;
+    a.download = `nexus-ai-report-${(data.contractName || "contract").replace(/\s+/g, "-").toLowerCase()}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -82,15 +82,15 @@ export default function ReportsPage() {
       <div style={{ padding: "2rem", maxWidth: 800, margin: "0 auto" }}>
         <PageHeader
           title="Report"
-          subtitle="A printable, shareable summary of your latest contract scan."
+          subtitle="A printable, shareable summary of your latest agreement analysis."
           action={<SecondaryButton onClick={downloadTextReport}><i className="ti ti-download" /> Download report</SecondaryButton>}
         />
 
         <GlassCard style={{ padding: "2rem" }}>
           <div style={{ borderBottom: "0.5px solid var(--glass-border)", paddingBottom: "1.25rem", marginBottom: "1.25rem" }}>
-            <div style={{ fontSize: 11, color: "var(--violet2)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>ContractGuard Risk Report</div>
-            <h2 style={{ fontSize: "1.3rem", fontWeight: 500, color: "var(--text)", marginBottom: 4 }}>{data.contractName || "Untitled Contract"}</h2>
-            <p style={{ fontSize: 13, color: "var(--text3)" }}>{data.brandName || "Unknown brand"} · Generated {new Date(data.scannedAt || Date.now()).toLocaleDateString()}</p>
+            <div style={{ fontSize: 11, color: "var(--violet2)", fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>Nexus AI Risk Report</div>
+            <h2 style={{ fontSize: "1.3rem", fontWeight: 500, color: "var(--text)", marginBottom: 4 }}>{data.contractName || "Untitled Agreement"}</h2>
+            <p style={{ fontSize: 13, color: "var(--text3)" }}>{data.brandName || "Unknown client"} · Generated {new Date(data.scannedAt || Date.now()).toLocaleDateString()}</p>
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: "1.5rem" }}>
@@ -130,7 +130,7 @@ export default function ReportsPage() {
 
           <div style={{ borderTop: "0.5px solid var(--glass-border)", paddingTop: "1.25rem", marginTop: "1.5rem" }}>
             <p style={{ fontSize: 11.5, color: "var(--text3)", lineHeight: 1.6 }}>
-              ⚠️ This is not legal advice. ContractGuard is an AI-powered tool designed to help creators identify potential negotiation points. Always consult a qualified attorney before signing.
+              ⚠️ This is not legal advice. Nexus AI is an AI-powered tool designed to help business users identify potential negotiation points. Always consult a qualified attorney before signing.
             </p>
           </div>
         </GlassCard>

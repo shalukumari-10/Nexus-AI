@@ -35,7 +35,7 @@ export default function LegalHelpPage() {
   return (
     <AppShell>
       <div style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto" }}>
-        <PageHeader title="Legal Help Marketplace" subtitle="Connect with lawyers and legal consultants who specialize in creator and influencer contracts." />
+        <PageHeader title="Expert Network" subtitle="Connect with lawyers, compliance officers, and legal consultants who specialize in business contracts and corporate compliance." />
 
         <GlassCard style={{ marginBottom: 16 }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 12 }}>
@@ -52,7 +52,7 @@ export default function LegalHelpPage() {
           </div>
         </GlassCard>
 
-        <div style={{ fontSize: 13, color: "var(--text3)", marginBottom: 12 }}>{filtered.length} legal professional{filtered.length !== 1 ? "s" : ""} found</div>
+        <div style={{ fontSize: 13, color: "var(--text3)", marginBottom: 12 }}>{filtered.length} compliance expert{filtered.length !== 1 ? "s" : ""} found</div>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 14 }}>
           {filtered.map((lawyer) => (
@@ -92,7 +92,7 @@ export default function LegalHelpPage() {
         )}
 
         <p style={{ fontSize: 12, color: "var(--text3)", textAlign: "center", marginTop: "1.5rem", lineHeight: 1.55 }}>
-          ContractGuard may earn a commission from successful legal consultations booked through this marketplace.
+          Nexus AI may earn a commission from successful legal consultations booked through this marketplace.
         </p>
       </div>
     </AppShell>

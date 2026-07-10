@@ -1,13 +1,10 @@
-# 🛡️ ContractGuard
+# 🛡️ Nexus AI
 
-**Your AI Advocate Before You Sign.**
+**AI-Powered Business Intelligence & Trust Platform**
 
-An AI-powered creator contract defense platform. ContractGuard scans brand-creator
-contracts and campaign briefs, flags one-sided clauses across 12+ risk categories,
-estimates financial impact, and drafts ready-to-send negotiation language — all from
-the creator's perspective.
+An AI-powered business trust intelligence platform. Nexus AI scans business agreements (vendor, service, SaaS, employment, NDAs, and creator contracts), flags one-sided clauses across 12+ risk categories, estimates financial impact, and drafts ready-to-send negotiation language — all from the business user's perspective.
 
-> Brands have legal teams. Creators usually don't. ContractGuard levels the playing field.
+> Clients have legal teams. Your business should too. Nexus AI levels the playing field.
 
 ---
 
@@ -31,7 +28,7 @@ Open `.env.local` and add your real key:
 NVIDIA_API_KEY=nvapi-...
 ```
 
-**No key? No problem.** ContractGuard ships with a keyword-based fallback analysis
+**No key? No problem.** Nexus AI ships with a keyword-based fallback analysis
 engine. If `NVIDIA_API_KEY` is missing or the API call fails for any reason, every
 endpoint automatically falls back to local analysis — the demo never breaks.
 
@@ -71,22 +68,22 @@ Expect `overallRiskLevel: "Low"`, `riskScore` ~10-20.
 ## Demo Flow (for judges)
 
 1. **`/`** — Landing page. Headline, fake contract preview with highlighted risks, pricing.
-2. **`/profile`** — Create a creator profile (name, category, platforms, followers). Saves to localStorage.
-3. **`/scanner`** — Click **"Use sample contract"** → pre-fills a high-risk brand deal. Click **"Analyze contract"** → watch the AI checklist animate through 7 categories.
-4. **`/results`** — Risk score, flag cards (expand any red flag to see clause, explanation, creator impact, **estimated financial impact**, counter-language). Try **"Rewrite Clause Fairly"** on a red flag. Switch negotiation tone (Friendly/Firm/Professional). Check the contract highlight panel on the right.
-5. **`/dashboard`** — Shows your saved scan in Recent Analyses, plus risk distribution and revenue trend charts.
+2. **`/profile`** — Create an organization profile (name, category, industry, organization size). Saves to localStorage.
+3. **`/scanner`** — Click **"Use sample agreement"** → pre-fills a high-risk client agreement. Click **"Analyze Agreement"** → watch the AI checklist animate through 7 categories.
+4. **`/results`** — Risk score, flag cards (expand any red flag to see clause, explanation, business impact, **estimated financial impact**, counter-language). Try **"Rewrite Clause Fairly"** on a red flag. Switch negotiation tone (Friendly/Firm/Professional). Check the contract highlight panel on the right.
+5. **`/dashboard`** — Shows your saved scan in Recent Business Assessments, plus risk distribution and business health trend charts.
 6. **`/history`** — Search/filter your scan history. Try **Export CSV**.
-7. **`/brand-insights`** — Brand leaderboard (Aero Audio = low risk, Lumen Beauty = high risk), common exploitative clauses chart.
+7. **`/brand-insights`** — Client leaderboard (Aero Audio = low risk, Lumen Beauty = high risk), common agreement risks chart.
 8. **`/negotiation-toolkit`** — Pick a clause category + tone → generates WhatsApp, email, and firm message variants.
-9. **`/legal-help`** — Filter lawyers by specialization, location, language, budget. Click "Book consultation."
-10. **`/reports`** — Printable report view of your latest scan. Download as `.txt`.
+9. **`/legal-help`** — Filter lawyers and compliance advisors by specialization, location, language, budget. Click "Book consultation."
+10. **`/reports`** — Printable report view of your latest analysis. Download as `.txt`.
 
 ---
 
 ## Project Structure
 
 ```
-contractguard/
+nexus-ai/
 ├── app/
 │   ├── api/
 │   │   ├── analyze-contract/route.ts   ← Core AI engine (NVIDIA + fallback)
@@ -127,9 +124,9 @@ contractguard/
   `/v1/chat/completions` endpoint, with a structured-JSON system prompt covering
   12+ risk categories, financial impact estimation, and negotiation message generation.
 - **Fallback**: If the API key is missing, the request times out (25s), or the
-  response can't be parsed as valid JSON, ContractGuard automatically runs a
+  response can't be parsed as valid JSON, Nexus AI automatically runs a
   keyword/negation-aware local analyzer (`lib/fallback-analysis.ts`). This guarantees
-  **different contracts always produce different scores** — a fair contract scores
+  **different agreements always produce different scores** — a fair agreement scores
   ~10-20, an exploitative one scores 90+ — even with zero API connectivity.
 - Every API response includes a `source: "ai" | "fallback"` field so the UI can be
   transparent about which engine produced the result (see the badge on `/results`).
@@ -148,6 +145,6 @@ contractguard/
 
 ## Disclaimer
 
-ContractGuard does not provide legal advice. It helps creators identify common
-negotiation points and understand contract risks. Always consult a qualified
-attorney before signing any contract.
+Nexus AI does not provide legal advice. It helps business users identify common
+negotiation points and understand agreement risks. Always consult a qualified
+attorney before signing any agreement.

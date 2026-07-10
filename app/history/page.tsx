@@ -38,15 +38,15 @@ export default function HistoryPage() {
 
   function exportCSV() {
     const csv = historyToCSV(filtered);
-    downloadCSV(`contractguard-history-${new Date().toISOString().slice(0, 10)}.csv`, csv);
+    downloadCSV(`nexus-ai-history-${new Date().toISOString().slice(0, 10)}.csv`, csv);
   }
 
   return (
     <AppShell>
       <div style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto" }}>
         <PageHeader
-          title="Scan History"
-          subtitle="Every contract you've scanned, searchable and exportable."
+          title="Business Records"
+          subtitle="Every agreement you've analyzed, searchable and exportable."
           action={
             <SecondaryButton onClick={exportCSV}>
               <i className="ti ti-download" /> Export CSV
@@ -61,7 +61,7 @@ export default function HistoryPage() {
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search by contract name, brand, or risk category…"
+                placeholder="Search by agreement name, client, or risk category…"
                 style={{ width: "100%", background: "rgba(0,0,0,0.25)", border: "0.5px solid var(--glass-border)", borderRadius: 8, padding: "9px 12px 9px 34px", fontSize: 13, color: "var(--text)", outline: "none" }}
               />
             </div>
@@ -89,16 +89,16 @@ export default function HistoryPage() {
             <div style={{ padding: "2rem" }}>
               <EmptyState
                 icon="ti-history"
-                title={history.length === 0 ? "No scans yet" : "No results match your filters"}
-                subtitle={history.length === 0 ? "Scan your first contract to build your history." : undefined}
-                action={history.length === 0 ? <SecondaryButton onClick={() => router.push("/scanner")}><i className="ti ti-scan" /> Go to Scanner</SecondaryButton> : undefined}
+                title={history.length === 0 ? "No records yet" : "No results match your filters"}
+                subtitle={history.length === 0 ? "Analyze your first agreement to build your business records." : undefined}
+                action={history.length === 0 ? <SecondaryButton onClick={() => router.push("/scanner")}><i className="ti ti-scan" /> Go to Agreement Scanner</SecondaryButton> : undefined}
               />
             </div>
           ) : (
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "0.5px solid var(--glass-border)" }}>
-                  {["Contract", "Brand", "Date", "Type", "Risk Score", "Status", ""].map((h) => (
+                  {["Agreement", "Client", "Date", "Type", "Risk Score", "Status", ""].map((h) => (
                     <th key={h} style={{ textAlign: "left", padding: "12px 16px", fontSize: 11, fontWeight: 500, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h}</th>
                   ))}
                 </tr>

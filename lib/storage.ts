@@ -73,7 +73,7 @@ export function getLastResult(): AnalysisResult | null {
 
 // ---------- CSV export ----------
 export function historyToCSV(entries: HistoryEntry[]): string {
-  const header = ["Contract Name", "Brand", "Date", "Type", "Risk Score", "Risk Level", "Status"];
+  const header = ["Agreement Name", "Client", "Date", "Type", "Risk Score", "Risk Level", "Status"];
   const rows = entries.map((e) => [
     e.contractName,
     e.brandName,

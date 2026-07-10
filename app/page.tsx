@@ -2,16 +2,16 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
 const PROBLEM_CARDS = [
-  { icon: "ti-infinity", color: "red", title: "Unlimited Usage Rights", desc: "Perpetual, worldwide licenses let brands reuse your content forever — without paying you again." },
-  { icon: "ti-eye-off", color: "amber", title: "Dark Posting Rights", desc: "Brands run your content as paid ads that never appear on your own feed, often unpaid." },
-  { icon: "ti-clock-x", color: "violet", title: "No Kill Fee", desc: "If the brand cancels mid-campaign, you can be left with zero compensation for work already done." },
-  { icon: "ti-lock", color: "emerald", title: "Broad Exclusivity", desc: "Long, vague exclusivity windows can block you from other deals in your niche for months." },
+  { icon: "ti-file-analytics", color: "red", title: "Business Agreement Intelligence", desc: "Decode complex legal terms, liability exposure, and operational obligations in seconds into clear, actionable business items." },
+  { icon: "ti-shield-alert", color: "amber", title: "AI Risk Detection", desc: "Automatically identify hidden hazards such as unfavorable payment schedules, licensing scope overreach, and excessive vendor liability." },
+  { icon: "ti-building-store", color: "violet", title: "Client Intelligence", desc: "Access aggregated, anonymized insights regarding client negotiation histories, risk trends, and payment reliability ratings." },
+  { icon: "ti-message-dots", color: "emerald", title: "AI Communication & Strategy", desc: "Instantly draft professional negotiation emails and strategic firm responses tailored to secure fairer contract terms." },
 ];
 
 const PRICING = [
-  { name: "Free", price: "$0", desc: "For creators just starting to vet brand deals.", features: ["3 contract scans / month", "Core risk flagging", "Basic negotiation copilot"], cta: "Start free" },
-  { name: "Creator Pro", price: "$19/mo", desc: "For full-time creators closing deals regularly.", features: ["Unlimited scans", "Financial impact estimator", "AI clause rewrite", "Full negotiation toolkit"], cta: "Go Pro", highlight: true },
-  { name: "Agency", price: "Custom", desc: "For talent agencies managing multiple creators.", features: ["Team seats", "Brand risk leaderboard", "Priority legal marketplace access", "Dedicated support"], cta: "Talk to us" },
+  { name: "Free", price: "$0", desc: "For startups and professionals vetting incoming contracts.", features: ["3 agreement scans / month", "Core risk flagging", "Basic negotiation suggestions"], cta: "Start free" },
+  { name: "Business Pro", price: "$19/mo", desc: "For growing businesses and consultants closing commercial deals regularly.", features: ["Unlimited scans", "Financial impact estimator", "AI clause rewrite", "AI Communication Studio"], cta: "Go Pro", highlight: true },
+  { name: "Enterprise", price: "Custom", desc: "For organizations managing multiple business units and vendor pools.", features: ["Team seats", "Client risk leaderboard", "Priority expert network access", "Dedicated compliance manager"], cta: "Talk to us" },
 ];
 
 export default function HomePage() {
@@ -22,19 +22,19 @@ export default function HomePage() {
       {/* HERO */}
       <div style={{ padding: "5rem 2rem 4rem", maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "center" }}>
         <div>
-          <p className="section-label">AI Creator Contract Defense</p>
+          <p className="section-label">Business Trust Intelligence Platform</p>
           <h1 style={{ fontSize: "2.5rem", fontWeight: 500, lineHeight: 1.18, letterSpacing: "-0.02em", marginBottom: "1.25rem", color: "var(--text)" }}>
-            Don&apos;t let a contract <span className="gradient-text">steal your influence.</span>
+            AI that understands every <span className="gradient-text">business agreement.</span>
           </h1>
           <p style={{ fontSize: "1rem", color: "var(--text2)", lineHeight: 1.75, marginBottom: "2rem" }}>
-            ContractGuard uses AI to detect exploitative brand-deal clauses before creators sign — and writes the counter-language they can send back.
+            Nexus AI helps organizations analyze agreements, detect hidden liabilities, protect revenue, and generate smart negotiation strategies to build trusted partnerships. Engineered for startups, SMEs, enterprise teams, agencies, consultants, vendors, freelancers, and creators.
           </p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
             <Link href="/scanner?sample=1" className="btn-primary">
-              <i className="ti ti-sparkles" /> Analyze a contract
+              <i className="ti ti-sparkles" /> Analyze Agreement
             </Link>
             <Link href="/scanner" className="btn-secondary">
-              <i className="ti ti-player-play" /> Watch demo
+              <i className="ti ti-player-play" /> Explore Platform
             </Link>
           </div>
         </div>
@@ -49,18 +49,18 @@ export default function HomePage() {
             <div style={{ fontSize: 13, fontWeight: 500, color: "var(--coral)" }}>82/100</div>
           </div>
           <div style={{ background: "rgba(0,0,0,0.3)", border: "0.5px solid var(--glass-border)", borderRadius: 10, padding: "1rem", marginBottom: "1rem", fontFamily: "monospace", fontSize: 12, color: "var(--text3)", lineHeight: 1.8 }}>
-            <div style={{ color: "var(--text2)" }}>BRAND COLLABORATION AGREEMENT</div>
-            <div>2. USAGE RIGHTS — <span style={{ background: "rgba(240,107,107,0.25)", color: "#F99", padding: "1px 4px", borderRadius: 3 }}>perpetual, irrevocable, worldwide</span></div>
-            <div>3. COMPENSATION — <span style={{ background: "rgba(245,166,35,0.25)", color: "#FFD080", padding: "1px 4px", borderRadius: 3 }}>Net-90 payment</span></div>
-            <div>5. KILL FEE — <span style={{ background: "rgba(240,107,107,0.25)", color: "#F99", padding: "1px 4px", borderRadius: 3 }}>none specified</span></div>
-            <div>4. EXCLUSIVITY — <span style={{ background: "rgba(245,166,35,0.25)", color: "#FFD080", padding: "1px 4px", borderRadius: 3 }}>12-month category lock</span></div>
+            <div style={{ color: "var(--text2)" }}>BUSINESS SERVICES AGREEMENT</div>
+            <div>2. INTELLECTUAL PROPERTY — <span style={{ background: "rgba(240,107,107,0.25)", color: "#F99", padding: "1px 4px", borderRadius: 3 }}>perpetual, irrevocable, worldwide license</span></div>
+            <div>3. COMPENSATION — <span style={{ background: "rgba(245,166,35,0.25)", color: "#FFD080", padding: "1px 4px", borderRadius: 3 }}>Net-90 payment window</span></div>
+            <div>5. LIABILITY — <span style={{ background: "rgba(240,107,107,0.25)", color: "#F99", padding: "1px 4px", borderRadius: 3 }}>unlimited indemnity on vendor</span></div>
+            <div>4. CLIENT EXCLUSIVITY — <span style={{ background: "rgba(245,166,35,0.25)", color: "#FFD080", padding: "1px 4px", borderRadius: 3 }}>12-month category restriction</span></div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {[
-              { label: "Perpetual usage rights", sev: "Red" },
+              { label: "IP Overreach / Perpetual licensing", sev: "Red" },
               { label: "Net-90 payment terms", sev: "Yellow" },
-              { label: "Kill fee absent", sev: "Red" },
-              { label: "12-month exclusivity", sev: "Yellow" },
+              { label: "Unlimited vendor liability", sev: "Red" },
+              { label: "Restricted client exclusivity", sev: "Yellow" },
             ].map((f, i) => (
               <div key={i} className={`animate-fadeslide-${Math.min(i, 3)}`} style={{ display: "flex", alignItems: "center", gap: 10, background: "var(--glass)", border: "0.5px solid var(--glass-border)", borderRadius: 8, padding: "8px 12px" }}>
                 <span style={{ width: 7, height: 7, borderRadius: "50%", background: f.sev === "Red" ? "var(--coral)" : "var(--amber)", flexShrink: 0 }} />
@@ -78,9 +78,9 @@ export default function HomePage() {
 
       {/* PROBLEM CARDS */}
       <div style={{ padding: "3rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
-        <p className="section-label">The problem</p>
+        <p className="section-label">Platform Capabilities</p>
         <h2 style={{ fontSize: "1.75rem", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: "2rem", color: "var(--text)" }}>
-          Brands have legal teams. Creators usually don&apos;t.
+          AI-powered business trust intelligence capabilities.
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
           {PROBLEM_CARDS.map((card) => {
@@ -105,13 +105,13 @@ export default function HomePage() {
       <div style={{ padding: "3rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
         <p className="section-label">How scoring works</p>
         <h2 style={{ fontSize: "1.75rem", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: "2rem", color: "var(--text)" }}>
-          Every contract gets a 0–100 risk score.
+          Every agreement receives a 0–100 risk score.
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
           {[
-            { range: "0–30", label: "Safe", color: "var(--emerald)", bg: "rgba(52,211,153,0.1)", desc: "Fair, balanced terms. Minor or no negotiation needed." },
-            { range: "31–60", label: "Caution", color: "var(--amber)", bg: "rgba(245,166,35,0.12)", desc: "A handful of clauses favor the brand. Worth a counter-offer." },
-            { range: "61–100", label: "Dangerous", color: "var(--coral)", bg: "rgba(240,107,107,0.15)", desc: "Significantly one-sided. Strong pushback recommended before signing." },
+            { range: "0–30", label: "Low Risk", color: "var(--emerald)", bg: "rgba(52,211,153,0.1)", desc: "Balanced, fair terms. Protects your margins and relationship stability with little to no negotiation required." },
+            { range: "31–60", label: "Moderate Risk", color: "var(--amber)", bg: "rgba(245,166,35,0.12)", desc: "Moderate exposure detected. A handful of clauses favor the client over your interests. Vetting recommended." },
+            { range: "61–100", label: "High Risk", color: "var(--coral)", bg: "rgba(240,107,107,0.15)", desc: "High operational risk. Highly one-sided clauses that could impact revenue, IP, or termination rights. Redlines required." },
           ].map((tier) => (
             <div key={tier.label} className="glass-card" style={{ padding: "1.5rem", borderLeft: `3px solid ${tier.color}` }}>
               <div style={{ fontSize: "1.8rem", fontWeight: 500, color: tier.color, marginBottom: 4 }}>{tier.range}</div>
@@ -128,7 +128,7 @@ export default function HomePage() {
       <div style={{ padding: "3rem 2rem", maxWidth: 1100, margin: "0 auto" }}>
         <p className="section-label">Pricing</p>
         <h2 style={{ fontSize: "1.75rem", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: "2rem", color: "var(--text)" }}>
-          Start free. Upgrade when deals get bigger.
+          Smarter business agreements. Vetted in seconds.
         </h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 14 }}>
           {PRICING.map((tier) => (
@@ -168,14 +168,14 @@ export default function HomePage() {
       {/* CTA */}
       <div style={{ padding: "1rem 2rem 4rem", maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
         <Link href="/scanner" className="btn-primary" style={{ fontSize: 15, padding: "13px 28px" }}>
-          <i className="ti ti-shield-check" /> Scan your first contract free
+          <i className="ti ti-shield-check" /> Analyze your first agreement free
         </Link>
       </div>
 
       <footer style={{ borderTop: "0.5px solid var(--glass-border)", padding: "1.5rem 2rem", textAlign: "center" }}>
-        <p style={{ fontSize: 12, color: "var(--text3)", lineHeight: 1.6, maxWidth: 600, margin: "0 auto" }}>
-          ContractGuard does not provide legal advice. It helps creators identify common negotiation points
-          and understand contract risks. Always consult a qualified attorney before signing.
+        <p style={{ fontSize: 12, color: "var(--text3)", lineHeight: 1.6, maxWidth: 650, margin: "0 auto" }}>
+          Nexus AI does not provide legal advice. It helps businesses, startups, SMEs, agencies, consultants, vendors, freelancers, and creators identify common
+          negotiation points and understand agreement risks across NDAs, Service, Vendor, Consulting, Employment, Freelance, Partnership, and Creator agreements. Always consult a qualified attorney before signing.
         </p>
       </footer>
     </div>

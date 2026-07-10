@@ -72,22 +72,22 @@ export default function DashboardPage() {
     <AppShell>
       <div style={{ padding: "2rem", maxWidth: 1100, margin: "0 auto" }}>
         <PageHeader
-          title="Creator Command Center"
-          subtitle="Your contract scanning activity, protected revenue, and negotiation performance at a glance."
-          action={<SecondaryButton onClick={() => router.push("/scanner")}><i className="ti ti-scan" /> Scan new contract</SecondaryButton>}
+          title="Business Intelligence Center"
+          subtitle="Your business agreement analysis activity, protected revenue, and negotiation performance at a glance."
+          action={<SecondaryButton onClick={() => router.push("/scanner")}><i className="ti ti-scan" /> Analyze new agreement</SecondaryButton>}
         />
 
         {usingMock && (
           <div style={{ marginBottom: "1.25rem", display: "inline-flex" }}>
-            <Badge color="neutral"><i className="ti ti-info-circle" /> Showing sample data — scan a contract to see your real activity</Badge>
+            <Badge color="neutral"><i className="ti ti-info-circle" /> Showing sample data — analyze an agreement to see your real activity</Badge>
           </div>
         )}
 
         {/* METRICS */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginBottom: "1.5rem" }}>
-          <StatCard icon="ti-file-search" label="Contracts Scanned" value={metrics.contractsScanned} color="violet" />
-          <StatCard icon="ti-flag-2" label="Risky Clauses Found" value={metrics.riskyClausesFound} color="red" />
-          <StatCard icon="ti-coin" label="Est. Money Protected" value={`$${metrics.moneyProtected.toLocaleString()}`} color="emerald" />
+          <StatCard icon="ti-file-search" label="Business Agreements Analyzed" value={metrics.contractsScanned} color="violet" />
+          <StatCard icon="ti-flag-2" label="Business Risks Identified" value={metrics.riskyClausesFound} color="red" />
+          <StatCard icon="ti-coin" label="Est. Revenue Protected" value={`$${metrics.moneyProtected.toLocaleString()}`} color="emerald" />
           <StatCard icon="ti-trending-up" label="Negotiation Success Rate" value={`${metrics.negotiationSuccessRate}%`} color="amber" />
           <StatCard icon="ti-gauge" label="Avg Risk Score" value={metrics.avgRiskScore} color="violet" />
         </div>
@@ -118,7 +118,7 @@ export default function DashboardPage() {
           </GlassCard>
 
           <GlassCard>
-            <div style={{ fontSize: 13.5, fontWeight: 500, color: "var(--text)", marginBottom: 14 }}>Protected Revenue Trend</div>
+            <div style={{ fontSize: 13.5, fontWeight: 500, color: "var(--text)", marginBottom: 14 }}>Business Health Trend</div>
             {revenueTrend.length > 0 ? (
               <ResponsiveContainer width="100%" height={220}>
                 <LineChart data={revenueTrend}>
@@ -133,15 +133,15 @@ export default function DashboardPage() {
           </GlassCard>
         </div>
 
-        {/* QUICK ACTIONS */}
+        {/* AI QUICK ACTIONS */}
         <GlassCard style={{ marginBottom: "1.5rem" }}>
-          <div style={{ fontSize: 13.5, fontWeight: 500, color: "var(--text)", marginBottom: 14 }}>Quick Actions</div>
+          <div style={{ fontSize: 13.5, fontWeight: 500, color: "var(--text)", marginBottom: 14 }}>AI Quick Actions</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 10 }}>
             {[
-              { icon: "ti-scan", label: "Scan new contract", href: "/scanner" },
+              { icon: "ti-scan", label: "Analyze new agreement", href: "/scanner" },
               { icon: "ti-wand", label: "Draft counter-language", href: "/negotiation-toolkit" },
-              { icon: "ti-building-store", label: "Check brand reputation", href: "/brand-insights" },
-              { icon: "ti-gavel", label: "Find legal help", href: "/legal-help" },
+              { icon: "ti-building-store", label: "Evaluate client trust", href: "/brand-insights" },
+              { icon: "ti-gavel", label: "Access expert network", href: "/legal-help" },
             ].map((a) => (
               <button
                 key={a.label}
@@ -159,16 +159,16 @@ export default function DashboardPage() {
           </div>
         </GlassCard>
 
-        {/* RECENT ANALYSES */}
+        {/* RECENT BUSINESS ASSESSMENTS */}
         <GlassCard style={{ padding: 0, overflow: "hidden" }}>
-          <div style={{ padding: "1.25rem 1.25rem 0.75rem", fontSize: 13.5, fontWeight: 500, color: "var(--text)" }}>Recent Analyses</div>
+          <div style={{ padding: "1.25rem 1.25rem 0.75rem", fontSize: 13.5, fontWeight: 500, color: "var(--text)" }}>Recent Business Assessments</div>
           {history.length === 0 ? (
-            <div style={{ padding: "1.25rem" }}><EmptyState title="No scans yet" subtitle="Run your first contract scan to see it here." /></div>
+            <div style={{ padding: "1.25rem" }}><EmptyState title="No assessments yet" subtitle="Run your first agreement analysis to see it here." /></div>
           ) : (
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderTop: "0.5px solid var(--glass-border)", borderBottom: "0.5px solid var(--glass-border)" }}>
-                  {["Contract", "Brand", "Date", "Risk", "Status", ""].map((h) => (
+                  {["Agreement", "Client", "Date", "Risk", "Status", ""].map((h) => (
                     <th key={h} style={{ textAlign: "left", padding: "10px 14px", fontSize: 11, fontWeight: 500, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.05em" }}>{h}</th>
                   ))}
                 </tr>

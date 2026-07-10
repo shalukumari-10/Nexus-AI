@@ -6,9 +6,9 @@ import { PageHeader, GlassCard, PrimaryButton } from "@/components/ui";
 import { getProfile, saveProfile } from "@/lib/storage";
 import { CreatorProfile } from "@/lib/types";
 
-const CATEGORIES = ["Beauty", "Fashion", "Fitness", "Gaming", "Tech", "Education", "Finance", "Lifestyle", "Food", "Travel"];
-const PLATFORMS = ["Instagram", "YouTube", "TikTok", "LinkedIn", "X"];
-const FOLLOWER_RANGES = ["< 10K", "10K–50K", "50K–200K", "200K–1M", "1M+"];
+const CATEGORIES = ["Technology", "Consulting", "Finance", "Healthcare", "E-commerce", "Retail", "Services", "Manufacturing", "Education", "Other"];
+const INDUSTRIES = ["Software & SaaS", "Professional Services", "E-commerce", "Healthcare & Biotech", "Retail & CPG", "Media & Entertainment", "Other"];
+const ORGANIZATION_SIZES = ["1–10", "11–50", "51–200", "201–500", "500+"];
 const TONES: CreatorProfile["negotiationTone"][] = ["Friendly", "Firm", "Professional"];
 
 const EMPTY: CreatorProfile = {
@@ -47,14 +47,14 @@ export default function ProfilePage() {
   return (
     <AppShell>
       <div style={{ padding: "2rem", maxWidth: 720, margin: "0 auto" }}>
-        <PageHeader title="Creator Profile" subtitle="Used to tailor contract analysis and financial impact estimates to your situation." />
+        <PageHeader title="Organization Profile" subtitle="Used to tailor contract analysis and business impact estimates to your organization." />
 
         <GlassCard style={{ padding: "1.75rem" }}>
-          <Field label="Name">
-            <input value={profile.name} onChange={(e) => { setProfile({ ...profile, name: e.target.value }); setSaved(false); }} placeholder="e.g. Jordan Lee" style={inputStyle} />
+          <Field label="Organization Name">
+            <input value={profile.name} onChange={(e) => { setProfile({ ...profile, name: e.target.value }); setSaved(false); }} placeholder="e.g. Acme Corp" style={inputStyle} />
           </Field>
 
-          <Field label="Creator category">
+          <Field label="Business Category">
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
               {CATEGORIES.map((c) => (
                 <Chip key={c} active={profile.category === c} onClick={() => { setProfile({ ...profile, category: c }); setSaved(false); }}>{c}</Chip>
@@ -62,28 +62,28 @@ export default function ProfilePage() {
             </div>
           </Field>
 
-          <Field label="Platforms">
+          <Field label="Industry">
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {PLATFORMS.map((p) => (
+              {INDUSTRIES.map((p) => (
                 <Chip key={p} active={profile.platforms.includes(p)} onClick={() => togglePlatform(p)}>{p}</Chip>
               ))}
             </div>
           </Field>
 
-          <Field label="Followers range">
+          <Field label="Organization Size">
             <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {FOLLOWER_RANGES.map((f) => (
+              {ORGANIZATION_SIZES.map((f) => (
                 <Chip key={f} active={profile.followers === f} onClick={() => { setProfile({ ...profile, followers: f }); setSaved(false); }}>{f}</Chip>
               ))}
             </div>
           </Field>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            <Field label="Location">
-              <input value={profile.location} onChange={(e) => { setProfile({ ...profile, location: e.target.value }); setSaved(false); }} placeholder="e.g. Mumbai, India" style={inputStyle} />
+            <Field label="Country">
+              <input value={profile.location} onChange={(e) => { setProfile({ ...profile, location: e.target.value }); setSaved(false); }} placeholder="e.g. United States" style={inputStyle} />
             </Field>
-            <Field label="Average deal value">
-              <input value={profile.avgDealValue} onChange={(e) => { setProfile({ ...profile, avgDealValue: e.target.value }); setSaved(false); }} placeholder="e.g. $2,000" style={inputStyle} />
+            <Field label="Primary Contact">
+              <input value={profile.avgDealValue} onChange={(e) => { setProfile({ ...profile, avgDealValue: e.target.value }); setSaved(false); }} placeholder="e.g. contact@acme.com" style={inputStyle} />
             </Field>
           </div>
 

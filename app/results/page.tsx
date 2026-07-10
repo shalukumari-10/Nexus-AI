@@ -125,7 +125,7 @@ export default function ResultsPage() {
             {[
               { label: "Red flags", val: reds, icon: "ti-alert-circle", color: "var(--coral)" },
               { label: "Warnings", val: yels, icon: "ti-alert-triangle", color: "var(--amber)" },
-              { label: "Creator-friendly", val: grns, icon: "ti-circle-check", color: "var(--emerald)" },
+              { label: "Business-friendly", val: grns, icon: "ti-circle-check", color: "var(--emerald)" },
               { label: "Negotiation points", val: reds + yels, icon: "ti-sword", color: "var(--violet2)" },
             ].map((card) => (
               <div key={card.label} style={{ background: "rgba(0,0,0,0.25)", border: "0.5px solid var(--glass-border)", borderRadius: 10, padding: "12px 14px" }}>
@@ -196,7 +196,7 @@ export default function ResultsPage() {
                           <p style={{ fontSize: "13.5px", color: "var(--text)", lineHeight: 1.65 }}>{flag.explanation}</p>
                         </Section>
                         {flag.creatorImpact && (
-                          <Section label="Creator impact">
+                          <Section label="Business Impact">
                             <div style={{ background: "rgba(245,166,35,0.08)", border: "0.5px solid rgba(245,166,35,0.25)", borderRadius: 8, padding: "10px 14px", fontSize: 13, color: "#FFD080", lineHeight: 1.6, display: "flex", gap: 8 }}>
                               <i className="ti ti-bolt" style={{ fontSize: 15, color: "var(--amber)", flexShrink: 0, marginTop: 1 }} />
                               {flag.creatorImpact}

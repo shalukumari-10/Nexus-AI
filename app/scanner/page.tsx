@@ -160,8 +160,8 @@ function ScannerInner() {
     <AppShell>
       <div style={{ padding: "2rem", maxWidth: 1000, margin: "0 auto" }}>
         <PageHeader
-          title="AI Scanner Workspace"
-          subtitle="Paste your contract or campaign brief. The AI reads every clause and flags risks across 12+ categories."
+          title="AI Agreement Workspace"
+          subtitle="Paste your agreement or contract brief. The AI analyzes every clause and flags risks across 12+ business categories."
         />
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 280px", gap: 16 }}>
@@ -171,23 +171,23 @@ function ScannerInner() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
               <GlassCard>
                 <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text3)", marginBottom: 8 }}>
-                  Contract name
+                  Agreement name
                 </div>
                 <input
                   value={contractName}
                   onChange={(e) => setContractName(e.target.value)}
-                  placeholder="e.g. Summer Skincare Campaign"
+                  placeholder="e.g. Vendor Service Agreement"
                   style={inputStyle}
                 />
               </GlassCard>
               <GlassCard>
                 <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text3)", marginBottom: 8 }}>
-                  Brand name
+                  Client name
                 </div>
                 <input
                   value={brandName}
                   onChange={(e) => setBrandName(e.target.value)}
-                  placeholder="e.g. Luxe Cosmetics Inc."
+                  placeholder="e.g. Acme Corp"
                   style={inputStyle}
                 />
               </GlassCard>
@@ -196,7 +196,7 @@ function ScannerInner() {
             {/* Upload */}
             <GlassCard>
               <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text3)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
-                <i className="ti ti-file-upload" /> Upload PDF
+                <i className="ti ti-file-upload" /> Upload Business Agreement
               </div>
               <div
                 onClick={() => fileRef.current?.click()}
@@ -214,12 +214,12 @@ function ScannerInner() {
             {/* Text */}
             <GlassCard>
               <div style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text3)", marginBottom: 10, display: "flex", alignItems: "center", gap: 6 }}>
-                <i className="ti ti-text-size" /> Contract text
+                <i className="ti ti-text-size" /> Agreement text
               </div>
               <textarea
                 value={text}
                 onChange={(e) => { setText(e.target.value); setError(""); }}
-                placeholder={"Paste the full contract or campaign brief here…\n\nFor best results, include the complete document."}
+                placeholder={"Paste the text of your agreement (SaaS, Vendor, Service, Consulting, Freelance, NDA, Creator, Employment or General Business Contract) here…\n\nFor best results, include the complete document."}
                 style={{
                   width: "100%", minHeight: 220, padding: "1rem",
                   fontSize: "13.5px", fontFamily: "inherit",
@@ -243,10 +243,10 @@ function ScannerInner() {
 
             <div style={{ display: "flex", gap: 10 }}>
               <SecondaryButton onClick={loadSample} style={{ whiteSpace: "nowrap" }}>
-                <i className="ti ti-file-text" /> Use sample contract
+                <i className="ti ti-file-text" /> Use sample agreement
               </SecondaryButton>
               <PrimaryButton onClick={handleAnalyze} disabled={loading} style={{ flex: 1 }}>
-                {loading ? (<><span className="spinner" /> Analyzing…</>) : (<><i className="ti ti-sparkles" /> Analyze contract</>)}
+                {loading ? (<><span className="spinner" /> Analyzing…</>) : (<><i className="ti ti-sparkles" /> Analyze Agreement</>)}
               </PrimaryButton>
             </div>
 
@@ -260,7 +260,7 @@ function ScannerInner() {
             )}
 
             <p style={{ fontSize: 12, color: "var(--text3)", textAlign: "center", lineHeight: 1.55 }}>
-              Not legal advice. AI-powered tool to help creators identify negotiation points.
+              Not legal advice. AI-powered tool to help business users identify negotiation points.
             </p>
           </div>
 

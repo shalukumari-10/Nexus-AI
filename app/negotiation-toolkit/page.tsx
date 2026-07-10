@@ -5,8 +5,8 @@ import AppShell from "@/components/AppShell";
 import { PageHeader, GlassCard, PrimaryButton, CopyButton } from "@/components/ui";
 
 const CATEGORIES = [
-  "Unlimited Usage Rights", "Paid Ad Usage / Whitelisting", "Vague Payment Terms", "Missing Kill Fee",
-  "Broad Exclusivity", "Unlimited Revisions", "Vague Termination Clause", "Content Ownership",
+  "IP Overreach / Unlimited Usage", "Unclear Service Usage / License Overreach", "Vague Payment Terms", "Missing Termination Fees",
+  "Restricted Client Exclusivity", "Unlimited Revision Rounds", "Vague Termination Clause", "Intellectual Property Ownership",
 ];
 const TONES = ["Friendly", "Firm", "Professional"] as const;
 
@@ -48,7 +48,7 @@ export default function NegotiationToolkitPage() {
   return (
     <AppShell>
       <div style={{ padding: "2rem", maxWidth: 900, margin: "0 auto" }}>
-        <PageHeader title="Negotiation Toolkit" subtitle="Generate a ready-to-send message for any risky clause, in the tone that fits you." />
+        <PageHeader title="AI Communication Studio" subtitle="Generate a ready-to-send message for any flagged contract risk, in the tone that fits your communication style." />
 
         <GlassCard style={{ marginBottom: 16 }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
@@ -71,11 +71,11 @@ export default function NegotiationToolkitPage() {
             </Field>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }}>
-            <Field label="Deal value (optional)">
+            <Field label="Agreement value (optional)">
               <input value={dealValue} onChange={(e) => setDealValue(e.target.value)} placeholder="e.g. $3,000" style={inputStyle} />
             </Field>
-            <Field label="Brand name (optional)">
-              <input value={brandName} onChange={(e) => setBrandName(e.target.value)} placeholder="e.g. Luxe Cosmetics" style={inputStyle} />
+            <Field label="Client name (optional)">
+              <input value={brandName} onChange={(e) => setBrandName(e.target.value)} placeholder="e.g. Acme Corp" style={inputStyle} />
             </Field>
           </div>
           <PrimaryButton onClick={generate} disabled={loading}>
