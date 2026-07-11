@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { href: "/history", label: "Business Records", icon: "ti-history" },
   { href: "/brand-insights", label: "Client Intelligence", icon: "ti-building-store" },
   { href: "/negotiation-toolkit", label: "AI Communication Studio", icon: "ti-message-2" },
+  { href: "/negotiation-simulator", label: "AI Negotiation Simulator", icon: "ti-messages" },
   { href: "/legal-help", label: "Expert Network", icon: "ti-gavel" },
   { href: "/reports", label: "Reports", icon: "ti-report" },
   { href: "/profile", label: "Organization Profile", icon: "ti-user-circle" },

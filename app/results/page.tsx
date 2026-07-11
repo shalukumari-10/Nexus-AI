@@ -8,6 +8,8 @@ import { getLastResult } from "@/lib/storage";
 import { buildNegotiationMessageClient } from "@/lib/client-negotiation";
 import { AnalysisResult, Flag } from "@/lib/types";
 import NexusAdvisor from "@/components/NexusAdvisor";
+import ExecutiveDecisionCenter from "@/components/ExecutiveDecisionCenter";
+import BusinessImpactSimulator from "@/components/BusinessImpactSimulator";
 
 type Filter = "all" | "red" | "yellow" | "green";
 type Tone = "Friendly" | "Firm" | "Professional";
@@ -159,6 +161,12 @@ export default function ResultsPage() {
             })}
           </div>
         </GlassCard>
+
+        {/* AI EXECUTIVE DECISION CENTER */}
+        <ExecutiveDecisionCenter data={data} />
+
+        {/* AI BUSINESS IMPACT SIMULATOR */}
+        <BusinessImpactSimulator data={data} />
 
         {/* FLAGS + CONTRACT HIGHLIGHT */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 16, alignItems: "start" }}>
