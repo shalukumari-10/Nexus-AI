@@ -39,7 +39,7 @@ export default function BrandInsightsPage() {
                 <XAxis type="number" tick={{ fill: "#5A6B8A", fontSize: 11 }} axisLine={{ stroke: "rgba(255,255,255,0.1)" }} />
                 <YAxis type="category" dataKey="name" tick={{ fill: "#94A3C0", fontSize: 12 }} axisLine={false} tickLine={false} width={110} />
                 <Tooltip contentStyle={{ background: "#1A2235", border: "0.5px solid rgba(255,255,255,0.12)", borderRadius: 8, fontSize: 12 }} cursor={{ fill: "rgba(255,255,255,0.04)" }} />
-                <Bar dataKey="deals" radius={[0, 6, 6, 0]}>
+                <Bar dataKey="deals" radius={[0, 6, 6, 0]} isAnimationActive={true}>
                   {chartData.map((d, i) => <Cell key={i} fill={d.color} />)}
                 </Bar>
               </BarChart>
@@ -56,7 +56,7 @@ export default function BrandInsightsPage() {
                     <span style={{ color: "var(--text3)" }}>{c.frequency}%</span>
                   </div>
                   <div style={{ height: 6, background: "rgba(255,255,255,0.06)", borderRadius: 3, overflow: "hidden" }}>
-                    <div style={{ height: "100%", width: `${c.frequency}%`, background: "linear-gradient(90deg, var(--violet), var(--blue))", borderRadius: 3 }} />
+                    <div style={{ height: "100%", width: `${c.frequency}%`, background: "linear-gradient(90deg, var(--violet), var(--blue))", borderRadius: 3, animation: "progflow 1.5s ease-out forwards" }} />
                   </div>
                 </div>
               ))}

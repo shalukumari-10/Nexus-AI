@@ -624,8 +624,8 @@ export default function NegotiationSimulator() {
                 <span style={{ fontSize: 9.5, fontWeight: 600, color: "var(--emerald)", textTransform: "uppercase", letterSpacing: "0.02em" }}>Active Simulator</span>
               </div>
             </div>
-            <h1 style={{ fontSize: "1.5rem", fontWeight: 600, color: "var(--text)" }}>AI Negotiation Simulator</h1>
-            <p style={{ fontSize: "13px", color: "var(--text2)" }}>AI negotiates risky clauses on your behalf.</p>
+            <h1 style={{ fontSize: "1.85rem", fontWeight: 700, letterSpacing: "-0.03em", color: "var(--text)", marginBottom: 6 }}>AI Negotiation Simulator</h1>
+            <p style={{ fontSize: "13.5px", color: "var(--text2)" }}>AI negotiates risky clauses on your behalf.</p>
           </div>
 
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -688,7 +688,7 @@ export default function NegotiationSimulator() {
             <div style={{ borderTop: "1px solid var(--glass-border)", paddingTop: 12, marginTop: "auto" }}>
               <span style={{ fontSize: 11, color: "var(--text3)", display: "block", marginBottom: 4 }}>Simulator Progress</span>
               <div style={{ width: "100%", height: 6, borderRadius: 3, background: "rgba(255,255,255,0.05)", overflow: "hidden" }}>
-                <div style={{ width: `${((activeIndex + 1) / clauses.length) * 100}%`, height: "100%", background: "linear-gradient(90deg, var(--violet), var(--blue))" }} />
+                <div style={{ width: `${((activeIndex + 1) / clauses.length) * 100}%`, height: "100%", background: "linear-gradient(90deg, var(--violet), var(--blue))", transition: "width 0.4s cubic-bezier(0.4, 0, 0.2, 1)" }} />
               </div>
             </div>
           </div>

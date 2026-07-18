@@ -108,11 +108,31 @@ export default function ResultsPage() {
         {/* RISK HEADER */}
         <GlassCard style={{ padding: "1.75rem", marginBottom: "1.25rem", position: "relative", overflow: "hidden", borderColor: "var(--glass-border2)" }}>
           <div style={{ display: "flex", alignItems: "flex-start", gap: "2rem", marginBottom: "1.5rem", flexWrap: "wrap" }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0 }}>
-              <div style={{ width: 80, height: 80, borderRadius: "50%", background: riskCircleStyle.bg, border: riskCircleStyle.border, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontSize: 22, fontWeight: 500, lineHeight: 1, color: riskCircleStyle.numColor }}>{Math.round(data.riskScore || 0)}</span>
-                <span style={{ fontSize: 10, color: "var(--text3)" }}>/ 100</span>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flexShrink: 0, position: "relative" }}>
+              <div className="ambient-glow" style={{ opacity: 0.4, width: 120, height: 120, background: `radial-gradient(circle, ${riskCircleStyle.numColor}25 0%, transparent 70%)` }} />
+              <div style={{ position: "relative", width: 80, height: 80, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                <svg width="80" height="80" style={{ position: "absolute", top: 0, left: 0, transform: "rotate(-90deg)" }}>
+                  <circle cx="40" cy="40" r="36" fill={riskCircleStyle.bg} />
+                  <circle
+                    cx="40" cy="40" r="36"
+                    fill="transparent"
+                    stroke={riskCircleStyle.numColor}
+                    strokeWidth="4"
+                    strokeDasharray={2 * Math.PI * 36}
+                    strokeDashoffset={2 * Math.PI * 36}
+                    style={{ animation: "draw-ring 1.5s ease-out forwards" }}
+                  />
+                </svg>
+                <div style={{ zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <span style={{ fontSize: 22, fontWeight: 500, lineHeight: 1, color: riskCircleStyle.numColor }}>{Math.round(data.riskScore || 0)}</span>
+                  <span style={{ fontSize: 10, color: "var(--text3)" }}>/ 100</span>
+                </div>
               </div>
+              <style jsx>{`
+                @keyframes draw-ring {
+                  to { stroke-dashoffset: ${2 * Math.PI * 36 - ((data.riskScore || 0) / 100) * (2 * Math.PI * 36)}; }
+                }
+              `}</style>
               <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.08em", textTransform: "uppercase", marginTop: 8, color: labelColors[lvl] }}>{lvlLabel.toUpperCase()}</span>
             </div>
             <div style={{ flex: 1, minWidth: 240 }}>

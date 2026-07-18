@@ -29,7 +29,8 @@ export default function Sidebar() {
         background: "rgba(15, 23, 42, 0.45)",
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
-        minHeight: "100vh",
+        height: "100vh",
+        overscrollBehavior: "none",
         position: "sticky",
         top: 0,
         display: "flex",
@@ -122,6 +123,7 @@ export default function Sidebar() {
             <Link
               key={item.href}
               href={item.href}
+              className="sidebar-link group"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -133,27 +135,29 @@ export default function Sidebar() {
                 fontWeight: 500,
                 textDecoration: "none",
                 color: active ? "var(--text)" : "var(--text2)",
-                background: active ? "rgba(79, 70, 229, 0.12)" : "transparent",
-                border: active ? "1px solid rgba(79, 70, 229, 0.25)" : "1px solid transparent",
-                boxShadow: active ? "0 0 15px rgba(79, 70, 229, 0.12)" : "none",
+                background: active ? "rgba(99, 102, 241, 0.12)" : "transparent",
+                border: active ? "1px solid rgba(99, 102, 241, 0.25)" : "1px solid transparent",
+                boxShadow: active ? "0 0 15px rgba(99, 102, 241, 0.12)" : "none",
                 transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-                position: "relative"
+                position: "relative",
+                overflow: "hidden"
               }}
               title={isCollapsed ? item.label : undefined}
             >
-              {active && (
-                <div style={{
-                  position: "absolute",
-                  left: 0,
-                  top: "20%",
-                  bottom: "20%",
-                  width: 3,
-                  background: "var(--violet)",
-                  borderRadius: "0 4px 4px 0",
-                  boxShadow: "0 0 8px var(--violet)"
-                }} />
-              )}
-              <i className={`ti ${item.icon}`} style={{ fontSize: 16, color: active ? "var(--violet2)" : "var(--text3)", transition: "transform 0.2s" }} />
+              <div style={{
+                position: "absolute",
+                left: 0,
+                top: "20%",
+                bottom: "20%",
+                width: 3,
+                background: "var(--violet)",
+                borderRadius: "0 4px 4px 0",
+                boxShadow: "0 0 8px var(--violet)",
+                transform: active ? "translateX(0)" : "translateX(-100%)",
+                opacity: active ? 1 : 0,
+                transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+              }} />
+              <i className={`ti ${item.icon} group-hover:scale-110`} style={{ fontSize: 16, color: active ? "var(--violet2)" : "var(--text3)", transition: "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)" }} />
               {!isCollapsed && <span>{item.label}</span>}
             </Link>
           );

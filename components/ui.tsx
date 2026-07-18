@@ -1,6 +1,37 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+
+function AnimateValue({ textValue }: { textValue: string | number }) {
+  const [displayValue, setDisplayValue] = useState(textValue);
+  useEffect(() => {
+    const text = String(textValue);
+    const numMatch = text.match(/[\d,.]+/);
+    if (!numMatch) return;
+    
+    const numStr = numMatch[0].replace(/,/g, '');
+    const num = parseFloat(numStr);
+    if (isNaN(num) || num === 0) return;
+
+    let start = 0;
+    const duration = 1500;
+    const incrementTime = Math.max(Math.floor(duration / Math.max(num, 1)), 16);
+    const step = num / (duration / incrementTime);
+    
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= num) {
+        clearInterval(timer);
+        setDisplayValue(text);
+      } else {
+        const currentStr = Math.floor(start).toLocaleString();
+        setDisplayValue(text.replace(numMatch[0], currentStr));
+      }
+    }, incrementTime);
+    return () => clearInterval(timer);
+  }, [textValue]);
+  return <>{displayValue}</>;
+}
 
 export function PageHeader({ title, subtitle, action }: { title: string; subtitle?: string; action?: React.ReactNode }) {
   const router = useRouter();
@@ -19,10 +50,10 @@ export function PageHeader({ title, subtitle, action }: { title: string; subtitl
             </div>
           </div>
           
-          <h1 style={{ fontSize: "1.6rem", fontWeight: 600, letterSpacing: "-0.02em", marginBottom: 6, color: "var(--text)" }}>
+          <h1 style={{ fontSize: "1.85rem", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 6, color: "var(--text)" }}>
             {title}
           </h1>
-          {subtitle && <p style={{ fontSize: 13, color: "var(--text2)", lineHeight: 1.6, maxWidth: 650 }}>{subtitle}</p>}
+          {subtitle && <p style={{ fontSize: 13.5, color: "var(--text2)", lineHeight: 1.6, maxWidth: 650 }}>{subtitle}</p>}
         </div>
         {action && <div style={{ alignSelf: "center" }}>{action}</div>}
       </div>
@@ -65,7 +96,7 @@ export function StatCard({
       <div style={{ width: 34, height: 34, borderRadius: 8, background: cc.bg, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 12 }}>
         <i className={`ti ${icon}`} style={{ color: cc.c, fontSize: 17 }} />
       </div>
-      <div style={{ fontSize: "1.5rem", fontWeight: 500, letterSpacing: "-0.02em", color: cc.c, marginBottom: 3 }}>{value}</div>
+      <div style={{ fontSize: "1.5rem", fontWeight: 500, letterSpacing: "-0.02em", color: cc.c, marginBottom: 3 }}><AnimateValue textValue={value} /></div>
       <div style={{ fontSize: 12.5, color: "var(--text2)", lineHeight: 1.4 }}>{label}</div>
       {sub && <div style={{ fontSize: 11, color: "var(--text3)", marginTop: 4 }}>{sub}</div>}
     </GlassCard>
@@ -96,7 +127,7 @@ export function PrimaryButton({ children, onClick, disabled, style, type = "butt
       disabled={disabled}
       style={{
         background: "linear-gradient(135deg, var(--violet), var(--blue))",
-        color: "#fff", border: "none", padding: "10px 20px", borderRadius: 8,
+        color: "#fff", border: "none", padding: "10px 20px", borderRadius: 10,
         fontSize: 13.5, fontWeight: 500, cursor: disabled ? "not-allowed" : "pointer",
         display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 7,
         opacity: disabled ? 0.5 : 1, transition: "opacity 0.15s", ...style,
@@ -113,7 +144,7 @@ export function SecondaryButton({ children, onClick, style }: { children: React.
       onClick={onClick}
       style={{
         background: "var(--glass2)", color: "var(--text)", border: "0.5px solid var(--glass-border2)",
-        padding: "10px 20px", borderRadius: 8, fontSize: 13.5, fontWeight: 500, cursor: "pointer",
+        padding: "10px 20px", borderRadius: 10, fontSize: 13.5, fontWeight: 500, cursor: "pointer",
         display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 7,
         transition: "background 0.15s", ...style,
       }}
@@ -135,7 +166,7 @@ export function CopyButton({ text, label = "Copy" }: { text: string; label?: str
       }}
       style={{
         background: "rgba(52,211,153,0.15)", border: "0.5px solid rgba(52,211,153,0.35)",
-        borderRadius: 6, padding: "5px 12px", fontSize: 11.5, color: "var(--emerald)",
+        borderRadius: 10, padding: "5px 12px", fontSize: 11.5, color: "var(--emerald)",
         cursor: "pointer", display: "flex", alignItems: "center", gap: 5, whiteSpace: "nowrap",
       }}
     >

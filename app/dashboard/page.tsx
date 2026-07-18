@@ -97,10 +97,11 @@ export default function DashboardPage() {
           <GlassCard>
             <div style={{ fontSize: 13.5, fontWeight: 500, color: "var(--text)", marginBottom: 14 }}>Risk Distribution</div>
             {riskDistribution.length > 0 ? (
-              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, position: "relative" }}>
+                <div className="ambient-glow" style={{ opacity: 0.3 }} />
                 <ResponsiveContainer width="100%" height={180}>
                   <PieChart>
-                    <Pie data={riskDistribution} dataKey="value" nameKey="name" innerRadius={45} outerRadius={75} paddingAngle={3}>
+                    <Pie data={riskDistribution} dataKey="value" nameKey="name" innerRadius={45} outerRadius={75} paddingAngle={3} isAnimationActive={true}>
                       {riskDistribution.map((d, i) => <Cell key={i} fill={d.color} stroke="none" />)}
                     </Pie>
                     <Tooltip contentStyle={{ background: "#1A2235", border: "0.5px solid rgba(255,255,255,0.12)", borderRadius: 8, fontSize: 12 }} />
@@ -126,7 +127,7 @@ export default function DashboardPage() {
                   <XAxis dataKey="name" tick={{ fill: "#5A6B8A", fontSize: 11 }} axisLine={{ stroke: "rgba(255,255,255,0.1)" }} />
                   <YAxis tick={{ fill: "#5A6B8A", fontSize: 11 }} axisLine={{ stroke: "rgba(255,255,255,0.1)" }} />
                   <Tooltip contentStyle={{ background: "#1A2235", border: "0.5px solid rgba(255,255,255,0.12)", borderRadius: 8, fontSize: 12 }} />
-                  <Line type="monotone" dataKey="protected" stroke="#A78BFA" strokeWidth={2.5} dot={{ fill: "#A78BFA", r: 4 }} />
+                  <Line type="monotone" dataKey="protected" stroke="#A78BFA" strokeWidth={2.5} dot={{ fill: "#A78BFA", r: 4 }} isAnimationActive={true} />
                 </LineChart>
               </ResponsiveContainer>
             ) : <EmptyState title="No trend data yet" />}

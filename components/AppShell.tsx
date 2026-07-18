@@ -17,9 +17,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
+    <div style={{ display: "flex", height: "100vh", overflow: "hidden", width: "100vw" }}>
       <Sidebar />
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
+      <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, height: "100vh" }}>
         {/* Top Navigation */}
         <header
           style={{
@@ -81,7 +81,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             {/* Theme Toggle (UI only) */}
             <button
               onClick={() => setIsLight(!isLight)}
-              style={{ background: "none", border: "none", color: "var(--text2)", cursor: "pointer", padding: 4, display: "flex", alignItems: "center" }}
+              className="topbar-icon"
               title="Toggle Theme"
             >
               <i className={`ti ${isLight ? "ti-sun" : "ti-moon"}`} style={{ fontSize: 17 }} />
@@ -89,7 +89,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
             {/* Notifications (UI only) */}
             <button
-              style={{ background: "none", border: "none", color: "var(--text2)", cursor: "pointer", padding: 4, display: "flex", alignItems: "center", position: "relative" }}
+              className="topbar-icon"
               title="Notifications"
             >
               <i className="ti ti-bell" style={{ fontSize: 17 }} />
@@ -142,7 +142,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         </header>
 
         {/* Global Page Content Container */}
-        <main style={{ flex: 1, overflowY: "auto", position: "relative" }} className="animate-fadeslide">
+        <main style={{ flex: 1, overflowY: "auto", position: "relative", paddingBottom: "4rem", overscrollBehavior: "none" }} className="animate-fadeslide">
           {children}
         </main>
       </div>
